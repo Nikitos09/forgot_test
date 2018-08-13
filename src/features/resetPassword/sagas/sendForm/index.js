@@ -8,17 +8,19 @@ import fetch from './../../../../api';
 
 export function* sendForm(action: any): any {
   try {
-    const response = yield call(fetch.put, '/auth/forgot', {
+    const response = yield call(fetch.put, '/auth/resetPassword', {
       email: action.payload.email
     });
+    console.log(response);
+    debugger;
     yield put({
-      type: t.FORGOT_SUCCEEDED,
+      type: t.RESET_PASSWORD_SUCCEEDED,
       payload: { ...response, user_id: action.payload },
     });    
   } catch (error) {
     const response = error.response || { data: {} };
     yield put({
-      type: t.FORGOT_FAILED,
+      type: t.RESET_PASSWORD_FAILED,
       error: {
         message: response.data.message || error.message,
         stack: error.stack,
@@ -35,5 +37,5 @@ export function* sendForm(action: any): any {
 }
 
 export default function* watcherSendForm(): any {
-  yield takeEvery(t.FORGOT, sendForm);
+  yield takeEvery(t.RESET_PASSWORD, sendForm);
 }

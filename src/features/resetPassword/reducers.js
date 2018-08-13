@@ -10,13 +10,13 @@ export const initialState: State = {
 
 export default (state: State = initialState, action: any) => {
   switch (action.type) {
-    case t.FORGOT: {
+    case t.RESET_PASSWORD: {
       return { ...state, isLoad: true, error: null };
     }
-    case t.FORGOT_FAILED: {
+    case t.RESET_PASSWORD_FAILED: {
       return { ...state, isLoad: false, error: action.error };
     }
-    case t.FORGOT_SUCCEEDED: {
+    case t.RESET_PASSWORD_SUCCEEDED: {
       return { ...state, isLoad: false, pageData: action.payload };
     }
 

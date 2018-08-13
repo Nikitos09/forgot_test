@@ -3,7 +3,7 @@
 import * as t from './actionTypes';
 
 export const sendForm = (data: any = {}) => ({
-    type: t.FORGOT,
+    type: t.RESET_PASSWORD,
     payload: data
 });
   

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Redirect } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/fontawesome-free-solid";
+import { faUnlock } from "@fortawesome/fontawesome-free-solid";
 import Input from "./../../../components/forms/Input";
 import "./style/style.css";
 
@@ -18,7 +18,7 @@ export default (props): React.Node | null => {
         <div className="col-12 col-sm-12 col-md-2 col-lg-4" />
         <div className="col-12 col-sm-12 col-md-8 col-lg-4">
           <div className="row">
-            <h2 textalign="center">Забыли пароль?</h2>
+            <h2 textalign="center">Изменение пароля</h2>
           </div>
           <div className="row">
             <form
@@ -27,14 +27,20 @@ export default (props): React.Node | null => {
               noValidate
             >
               <p>{gratitudeText}</p>
-                <Input
-                name="email"
-                icon={<FontAwesomeIcon icon={faEnvelope} />}
-                placeholder="Введите ваш email"
-                type="text"
+              <Input
+                name="password"
+                icon={<FontAwesomeIcon icon={faUnlock} />}
+                placeholder="Введите пароль"
+                type="password"
+              />
+              <Input
+                name="confirm_password"
+                icon={<FontAwesomeIcon icon={faUnlock} />}
+                placeholder="Повторите пароль"
+                type="password"
               />
               <button type="submit" className="btn btn-primary btn-lg w-100">
-                Отправить
+                Изменить
               </button>
               {error && <div className="text-danger">{error}</div>}
             </form>

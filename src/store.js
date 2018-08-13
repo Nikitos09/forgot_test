@@ -14,7 +14,7 @@ function configureStore() {
   if (process.env.NODE_ENV === 'development') {
     middleware = composeEnhancers(applyMiddleware(
       sagaMiddleware,
-      createLogger()
+      // createLogger()
     ));
   } else {
     middleware = composeEnhancers(applyMiddleware(sagaMiddleware));
