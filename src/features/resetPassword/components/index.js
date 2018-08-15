@@ -6,7 +6,7 @@ import Input from "./../../../components/forms/Input";
 import "./style/style.css";
 
 export default (props): React.Node | null => {
-  const { handleSubmit, error, pageData } = props;
+  const { handleSubmit, error, pageData, isSuccess } = props;
   const { sendForm } = props.actions;
   const { from, gratitudeText } = props.location.state || {};
   if (pageData && pageData.token) {
@@ -28,13 +28,13 @@ export default (props): React.Node | null => {
             >
               <p>{gratitudeText}</p>
               <Input
-                name="password"
+                name="newPassword"
                 icon={<FontAwesomeIcon icon={faUnlock} />}
                 placeholder="Введите пароль"
                 type="password"
               />
               <Input
-                name="confirm_password"
+                name="confirm_newPassword"
                 icon={<FontAwesomeIcon icon={faUnlock} />}
                 placeholder="Повторите пароль"
                 type="password"
@@ -43,6 +43,7 @@ export default (props): React.Node | null => {
                 Изменить
               </button>
               {error && <div className="text-danger">{error}</div>}
+              {isSuccess && <div className="text-success">{isSuccess}</div>}
             </form>
           </div>
         </div>

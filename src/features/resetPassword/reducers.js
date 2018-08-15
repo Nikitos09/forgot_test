@@ -4,6 +4,7 @@ import type { State } from './types';
 
 export const initialState: State = {
   error: null,
+  isSuccess: null,
   pageData: null,
   isLoad: false
 };
@@ -17,7 +18,7 @@ export default (state: State = initialState, action: any) => {
       return { ...state, isLoad: false, error: action.error };
     }
     case t.RESET_PASSWORD_SUCCEEDED: {
-      return { ...state, isLoad: false, pageData: action.payload };
+      return { ...state, isLoad: false, pageData: action.payload, isSuccess: action.isSuccess };
     }
 
     case t.REFRESH: {

@@ -1,20 +1,18 @@
 
-// @flow
-
 function validate(values: any) {
     let errors: any = {};
     
-    if(!values.password){
-        errors.password ="Заполните поле";
+    if(!values.newPassword){
+        errors.newPassword ="Заполните поле";
     }
-    else if(values.password.length < 6){
-        errors.password = "Минимум 6 символов";
+    else if(values.newPassword.length < 6){
+        errors.newPassword = "Минимум 6 символов";
     }
-    if(!values.confirm_password){
-        errors.confirm_password = "Заполните поле";
+    if(!values.confirm_newPassword){
+        errors.confirm_newPassword = "Заполните поле";
     }
-    else if(values.confirm_password !== values.password){
-        errors.confirm_password = "Пароли не совпадают";
+    else if(values.confirm_newPassword !== values.newPassword){
+        errors.confirm_newPassword = "Пароли не совпадают";
     }
     return errors;
 }

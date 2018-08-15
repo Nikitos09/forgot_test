@@ -9,14 +9,13 @@ import fetch from './../../../../api';
 export function* sendForm(action: any): any {
   try {
     const response = yield call(fetch.put, '/auth/resetPassword', {
-      email: action.payload.email
+      newPassword: action.payload.newPassword
     });
-    console.log(response);
-    debugger;
     yield put({
       type: t.RESET_PASSWORD_SUCCEEDED,
-      payload: { ...response, user_id: action.payload },
-    });    
+      payload: { ...response },
+      isSuccess: 'Пароль успешно изменён',
+    });
   } catch (error) {
     const response = error.response || { data: {} };
     yield put({
@@ -35,6 +34,7 @@ export function* sendForm(action: any): any {
     );
   }
 }
+
 
 export default function* watcherSendForm(): any {
   yield takeEvery(t.RESET_PASSWORD, sendForm);

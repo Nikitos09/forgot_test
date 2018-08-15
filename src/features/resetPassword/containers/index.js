@@ -21,13 +21,15 @@ import validators from './../validators';
 import { 
   selectPageData, 
   selectError,
-  selectLoader
+  selectLoader,
+  selectSuccess,
 } from './../selectors';
 
 const mapStateToProps = (state: any) => ({
   pageData: selectPageData(state),
   errorData: selectError(state),
-  isLoad: selectLoader(state)
+  isLoad: selectLoader(state),
+  isSuccess: selectSuccess(state),
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
