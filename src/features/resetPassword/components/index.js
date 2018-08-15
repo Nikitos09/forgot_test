@@ -6,14 +6,14 @@ import Input from "./../../../components/forms/Input";
 import "./style/style.css";
 
 export default (props): React.Node | null => {
-  const { handleSubmit, error, pageData, isSuccess } = props;
+  const { handleSubmit, error, isSuccess } = props;
   const { sendForm } = props.actions;
   const { from, gratitudeText } = props.location.state || {};
-  if (pageData && pageData.token) {
+  if (isSuccess) {
     return <Redirect to={from || { pathname: "/" }} />;
   }
   return (
-    <div className="container login-form">
+    <div className="container resetPassword-form">
       <div className="row">
         <div className="col-12 col-sm-12 col-md-2 col-lg-4" />
         <div className="col-12 col-sm-12 col-md-8 col-lg-4">
@@ -43,7 +43,6 @@ export default (props): React.Node | null => {
                 Изменить
               </button>
               {error && <div className="text-danger">{error}</div>}
-              {isSuccess && <div className="text-success">{isSuccess}</div>}
             </form>
           </div>
         </div>

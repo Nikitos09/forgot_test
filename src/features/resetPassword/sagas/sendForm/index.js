@@ -14,7 +14,7 @@ export function* sendForm(action: any): any {
     yield put({
       type: t.RESET_PASSWORD_SUCCEEDED,
       payload: { ...response },
-      isSuccess: 'Пароль успешно изменён',
+      isSuccess: response.data.success,
     });
   } catch (error) {
     const response = error.response || { data: {} };
@@ -27,6 +27,7 @@ export function* sendForm(action: any): any {
         statusText: error.response && error.response.statusText
       }
     });
+
     yield put(
       stopSubmit(FORM_NAME, {
         _error: response.data.message || 'Произошла серверная ошибка'

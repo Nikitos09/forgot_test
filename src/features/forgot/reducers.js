@@ -5,7 +5,8 @@ import type { State } from './types';
 export const initialState: State = {
   error: null,
   pageData: null,
-  isLoad: false
+  isLoad: false,
+  isSuccess: null,
 };
 
 export default (state: State = initialState, action: any) => {
@@ -17,13 +18,12 @@ export default (state: State = initialState, action: any) => {
       return { ...state, isLoad: false, error: action.error };
     }
     case t.FORGOT_SUCCEEDED: {
-      return { ...state, isLoad: false, pageData: action.payload };
+      return { ...state, isLoad: false, pageData: action.payload, isSuccess: action.isSuccess };
     }
 
     case t.REFRESH: {
       return initialState;
     }
-
     default:
       return state;
   }

@@ -21,6 +21,6 @@ export const selectError = createSelector(getError, (error: any) => {
   return error;
 });
 
-export const selectSuccess = createSelector(getSuccess, (error: any) => {
-  return error;
+export const selectSuccess = createSelector(getSuccess, (isSuccess: any) => {
+  return isSuccess;
 });

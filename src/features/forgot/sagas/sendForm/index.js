@@ -14,7 +14,8 @@ export function* sendForm(action: any): any {
     yield put({
       type: t.FORGOT_SUCCEEDED,
       payload: { ...response, user_id: action.payload },
-    });    
+      isSuccess: 'На указанный почтовый ящик выслано письмо с дальнейшими инструкциями',
+    });  
   } catch (error) {
     const response = error.response || { data: {} };
     yield put({
